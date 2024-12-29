@@ -3,27 +3,51 @@ const router = express.Router();
 
 //Index EndPoint
 router.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", {
+    title: "Home",
+    layout: "main",
+  });
 });
 
 //Contact Endpoint
 router.get("/contact", (req, res) => {
-  res.render("contact");
+  res.render("contact", {
+    title: "Contact",
+    layout: "main",
+  });
 });
 
 //Projects Endpoint
 router.get("/projects", (req, res) => {
-  res.render("projects");
+  res.render("projects", {
+    title: "My Projects",
+    layout: "main",
+    project: true,
+  });
 });
 
 //Testimonials Endpoint
 router.get("/testimonials", (req, res) => {
-  res.render("index");
+  res.render("testimonials", {
+    title: "Testimonials",
+    layout: "main",
+  });
+});
+
+//Details Project
+router.get("/detail-project", (req, res) => {
+  res.render("detail-project", {
+    title: "Detail Project",
+    layout: "main",
+  });
 });
 
 //Not Found Endpoint
 router.get("*", (req, res) => {
-  res.send("Not Found")
+  res.render("404", {
+    title: "Not Found",
+    layout: "main",
+  });
 });
 
 module.exports = router;

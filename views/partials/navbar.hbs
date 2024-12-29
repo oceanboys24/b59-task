@@ -1,0 +1,63 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-body-secondary">
+  <div class="container-fluid">
+    <a href="/"><img
+        src="./assets/img/logo.png"
+        style="width: 80px"
+        class="navbar-brand"
+        alt="logo"
+      /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active fs-5" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active fs-5"
+            aria-current="page"
+            href="/projects"
+          >My Project</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active fs-5"
+            aria-current="page"
+            href="/testimonials"
+          >Testimonials</a>
+        </li>
+      </ul>
+
+      <div class="d-flex gap-3">
+        {{#if  project}}
+          <div class="modal-create">
+            <a
+              data-bs-toggle="modal"
+              data-bs-target="#createModal"
+              class="btn btn-primary text-light fs-5"
+              href="addBlog.html"
+            >Add Project</a>
+          </div>
+        {{/if}}
+        <div class="">
+          <a
+            class="btn btn-secondary text-light fs-5"
+            href="/contact"
+          >Contact Me</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
