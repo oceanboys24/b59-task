@@ -31,7 +31,7 @@ router.get("/projects", ProjectGetAll);
 router.post("/add-project", ProjectCreate);
 
 // Delete Project Endpoint
-router.delete("/delete-project/:id", ProjectDelete);
+router.post("/delete-project/:id", ProjectDelete);
 
 //Testimonials Endpoint
 router.get("/testimonials", (req, res) => {

@@ -63,19 +63,19 @@ async function ProjectDelete(req, res) {
     const { id } = req.params;
 
     if (!id) {
-      return res.status(400).json({ message: "Project ID is required" });
+      return res.status(400).send({ message: "Project ID is required" });
     }
 
     const deletedCount = await Project.destroy({ where: { id } });
 
     if (deletedCount === 0) {
-      return res.status(404).json({ message: "Project not found" });
+      return res.status(404).send({ message: "Project not found" });
     }
 
-    res.status(200).json({ message: "Project deleted successfully" });
+    res.status(200).send({ message: "Project deleted successfully" });
   } catch (error) {
     console.error("Error deleting project:", error);
-    res.status(500).json({ message: "Error deleting project" });
+    res.status(500).send({ message: "Error deleting project" });
   }
 }
 
