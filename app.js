@@ -5,9 +5,6 @@ const port = 3000;
 const path = require("path");
 const routes = require("./routes/routes");
 
-
-
-
 //Import Static File
 app.use(express.static(path.join(__dirname, "views")));
 
