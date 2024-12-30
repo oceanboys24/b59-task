@@ -1,44 +1,21 @@
-    <!-- Detail Project -->
-    <div class="container p-2 bg-body-secondary rounded shadow-lg mt-5 ">
-      <div class="d-flex justify-content-between">
-        <div class="d-flex justify-content-center align-items-center">
-          <img
-            src="assets/img/logo.png"
-            alt="img-project"
-            style="width: 25rem"
-          />
-        </div>
-        <div class="p-2">
-          <p class="fs-1">Dummy App</p>
-          <p>Duration : 3 Months</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit sint
-            corporis nisi totam culpa enim adipisci excepturi tenetur, eligendi
-            quaerat tempore dolores itaque quo id nobis veniam. Molestiae, id
-            voluptatem! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Odit sint corporis nisi totam culpa enim adipisci excepturi tenetur,
-            eligendi quaerat tempore dolores itaque quo id nobis veniam.
-            Molestiae, id voluptatem! Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Odit sint corporis nisi totam culpa enim adipisci
-            excepturi tenetur, eligendi quaerat tempore dolores itaque quo id
-            nobis veniam. Molestiae, id voluptatem! Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Odit sint corporis nisi totam culpa
-            enim adipisci excepturi tenetur, eligendi quaerat tempore dolores
-            itaque quo id nobis veniam. Molestiae, id voluptatem! Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Odit sint corporis nisi
-            totam culpa enim adipisci excepturi tenetur, eligendi quaerat
-            tempore dolores itaque quo id nobis veniam. Molestiae, id
-            voluptatem! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Odit sint corporis nisi totam culpa enim adipisci excepturi tenetur,
-            eligendi quaerat tempore dolores itaque quo id nobis veniam.
-            Molestiae, id voluptatem!
-          </p>
-          <div class="d-flex mb-3 fs-2">
-            <i class="lni lni-typescript"></i>
-            <i class="lni lni-react"></i>
-            <i class="lni lni-nextjs"></i>
-            <i class="lni lni-nodejs"></i>
-          </div>
-        </div>
+<!-- Detail Project -->
+<div class="container p-2 bg-body-secondary rounded shadow-lg mt-5">
+  <div class="d-flex justify-content-between">
+    <div>
+      <img  class="rounded" src="../assets/img/photo.webp" alt="img-project" style="width: 25rem" />
+    </div>
+    <div class="p-2 flex-grow-1">
+      <p class="fs-1">{{project.name}}</p>
+      <p>Duration : 3 Months</p>
+      <p>
+        {{project.description}}
+      </p>
+
+      <div class="d-flex mb-3 fs-2">
+        {{#each project.stack}}
+          <i class="lni lni-{{this}}"></i>
+        {{/each}}
       </div>
     </div>
+  </div>
+</div>

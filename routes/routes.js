@@ -1,6 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { ProjectGetAll, ProjectCreate } = require("../controllers/project_controllers")
+const {
+  ProjectGetAll,
+  ProjectCreate,
+  ProjectDetail,
+  ProjectDelete,
+} = require("../controllers/project_controllers");
 //Index EndPoint
 router.get("/", (req, res) => {
   res.render("index", {
@@ -22,8 +27,10 @@ router.get("/projects", ProjectGetAll);
 
 // Add Project Endpoint
 router.post("/add-project", ProjectCreate);
-//Edit Project Endpoint
-// router.patch("/project-edit",)
+
+// Delete Project Endpoint
+router.delete("/delete-project/:id", ProjectDelete)
+
 
 //Testimonials Endpoint
 router.get("/testimonials", (req, res) => {
@@ -34,14 +41,9 @@ router.get("/testimonials", (req, res) => {
 });
 
 //Details Project
-router.get("/detail-project", (req, res) => {
-  res.render("detail-project", {
-    title: "Detail Project",
-    layout: "main",
-  });
-});
+router.get("/detail-project/:id", ProjectDetail);
 
-//Details Project
+//Endpoint Add Project
 router.get("/project-add", (req, res) => {
   res.render("project-add", {
     title: "Add Project",
@@ -49,7 +51,7 @@ router.get("/project-add", (req, res) => {
   });
 });
 
-//Details Project
+//Edit Project
 router.get("/project-edit", (req, res) => {
   res.render("project-edit", {
     title: "Edit Project",

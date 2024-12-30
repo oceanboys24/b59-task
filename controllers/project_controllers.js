@@ -1,21 +1,17 @@
-const express = require("express");
+const { Where } = require("sequelize/lib/utils");
 const { Project } = require("../models");
-const path = require("path");
-
 
 //Get All
 async function ProjectGetAll(req, res) {
-  const projects = await Project.findAll({raw : true});
-  console.log("Data sent to HBS:", projects);
+  const projects = await Project.findAll({ raw: true });
 
   res.render("projects", {
     projects,
     title: "My Projects",
     layout: "main",
-    project: true,
+    isProject: true,
   });
 }
-
 
 //Create
 async function ProjectCreate(req, res) {
@@ -38,5 +34,49 @@ async function ProjectCreate(req, res) {
   }
 }
 
+// Details
+async function ProjectDetail(req, res) {
+  try {
+    const project = await Project.findByPk(req.params.id, { raw: true });
+    if (!project) {
+      return res.render("404", {
+        title: "Project Not Found",
+        layout: "main",
+      });
+    }
+    res.render("detail-project", {
+      project,
+      title: "Detail Project",
+      layout: "main",
+    });
+  } catch (error) {
+    res.render("404", {
+      title: "Not Found",
+      layout: "main",
+    });
+  }
+}
 
-module.exports = { ProjectGetAll, ProjectCreate };
+//Delete
+async function ProjectDelete(req, res) {
+  try {
+    const { id } = req.params;
+
+    if (!id) {
+      return res.status(400).json({ message: "Project ID is required" });
+    }
+
+    const deletedCount = await Project.destroy({ where: { id } });
+
+    if (deletedCount === 0) {
+      return res.status(404).json({ message: "Project not found" });
+    }
+
+    res.status(200).json({ message: "Project deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting project:", error);
+    res.status(500).json({ message: "Error deleting project" });
+  }
+}
+
+module.exports = { ProjectGetAll, ProjectCreate, ProjectDetail, ProjectDelete };
