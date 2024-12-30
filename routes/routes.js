@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const { ProjectGetAll, ProjectCreate } = require("../controllers/project_controllers")
 //Index EndPoint
 router.get("/", (req, res) => {
   res.render("index", {
@@ -18,13 +18,12 @@ router.get("/contact", (req, res) => {
 });
 
 //Projects Endpoint
-router.get("/projects", (req, res) => {
-  res.render("projects", {
-    title: "My Projects",
-    layout: "main",
-    project: true,
-  });
-});
+router.get("/projects", ProjectGetAll);
+
+// Add Project Endpoint
+router.post("/add-project", ProjectCreate);
+//Edit Project Endpoint
+// router.patch("/project-edit",)
 
 //Testimonials Endpoint
 router.get("/testimonials", (req, res) => {

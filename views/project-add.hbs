@@ -1,124 +1,152 @@
+<form action="/add-project" method="post">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="fs-5 mb-0">Create A New Project</h1>
+          </div>
+          <div class="card-body">
+            <div class="container p-3">
 
-<div class="container py-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header">
-          <h1 class="fs-5 mb-0">Create A New Project</h1>
-        </div>
-        <div class="card-body">
-          <div class="container p-3">
-            <!-- Project Name -->
-            <div class="mb-3 p-2">
-              <label
-                for="projectName"
-                class="form-label fw-semibold fs-5"
-              >Project Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="projectName"
-                placeholder="Project Name"
-              />
-            </div>
-
-            <!-- Date -->
-            <div class="d-flex gap-3 justify-content-between w-100 p-2 mb-3">
-              <div class="mb-3 w-100">
+              <!-- Project Name -->
+              <div class="mb-3 p-2">
                 <label
-                  for="startDateInput"
+                  for="projectName"
                   class="form-label fw-semibold fs-5"
-                >Start Date</label>
-                <input type="date" class="form-control" id="startDateInput" />
+                >Project Name</label>
+                <input
+                  name="ProjectName"
+                  type="text"
+                  class="form-control"
+                  id="projectName"
+                  placeholder="Project Name"
+                  required
+                />
               </div>
-              <div class="mb-3 w-100">
-                <label
-                  for="endDateInput"
-                  class="form-label fw-semibold fs-5"
-                >End Date</label>
-                <input type="date" class="form-control" id="endDateInput" />
-              </div>
-            </div>
 
-            <!-- Message -->
-            <div class="p-2 mb-3">
-              <label
-                for="description"
-                class="form-label fw-semibold fs-5"
-              >Description</label>
-              <textarea
-                class="form-control"
-                placeholder="Description"
-                id="description"
-              ></textarea>
-            </div>
-
-            <!-- Checkbox -->
-            <div class="container p-2 mb-3">
-              <label
-                for="technologies"
-                class="form-label fw-semibold fs-5"
-              >Technologies</label>
-              <div class="row row-cols-1 row-cols-md-2 g-2 p-2">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="reactCheck"
-                  />
-                  <label class="form-check-label" for="reactCheck">React JS</label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="nextCheck"
-                  />
-                  <label class="form-check-label" for="nextCheck">Next JS</label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="tsCheck"
-                  />
+              <!-- Date -->
+              <div class="d-flex gap-3 justify-content-between w-100 p-2 mb-3">
+                <div class="mb-3 w-100">
                   <label
-                    class="form-check-label"
-                    for="tsCheck"
-                  >Typescript</label>
-                </div>
-                <div class="form-check">
+                    for="startDateInput"
+                    class="form-label fw-semibold fs-5"
+                  >Start Date</label>
                   <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="nodeCheck"
+                    name="StartDate"
+                    type="date"
+                    class="form-control"
+                    id="startDateInput"
+                    required
                   />
-                  <label class="form-check-label" for="nodeCheck">Node JS</label>
+                </div>
+                <div class="mb-3 w-100">
+                  <label
+                    for="endDateInput"
+                    class="form-label fw-semibold fs-5"
+                  >End Date</label>
+                  <input
+                    name="EndDate"
+                    type="date"
+                    class="form-control"
+                    id="endDateInput"
+                    required
+                  />
                 </div>
               </div>
-            </div>
 
-            <!-- Upload Image Form -->
-            <div class="mb-3 p-2">
-              <label
-                for="uploadImage"
-                class="form-label fw-semibold fs-5"
-              >Upload Image</label>
-              <input class="form-control" type="file" id="uploadImage" />
+              <!-- Message -->
+              <div class="p-2 mb-3">
+                <label
+                  for="description"
+                  class="form-label fw-semibold fs-5"
+                >Description</label>
+                <textarea
+                  name="Description"
+                  class="form-control"
+                  placeholder="Description"
+                  id="Description"
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Checkbox -->
+              <div class="container p-2 mb-3">
+                <label
+                  for="technologies"
+                  class="form-label fw-semibold fs-5"
+                >Technologies</label>
+                <div class="row row-cols-1 row-cols-md-2 g-2 p-2">
+                  <div class="form-check">
+                    <input
+                      name="Stack"
+                      class="form-check-input"
+                      type="checkbox"
+                      value="lni lni-react"
+                      id="reactCheck"
+                    />
+                    <label class="form-check-label" for="reactCheck">React JS</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      name="Stack"
+                      class="form-check-input"
+                      type="checkbox"
+                      value="lni lni-nextjs"
+                      id="nextCheck"
+                    />
+                    <label class="form-check-label" for="nextCheck">Next JS</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      name="Stack"
+                      class="form-check-input"
+                      type="checkbox"
+                      value="lni lni-typescript"
+                      id="tsCheck"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="tsCheck"
+                    >Typescript</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      name="Stack"
+                      class="form-check-input"
+                      type="checkbox"
+                      value="lni lni-nodejs"
+                      id="nodeCheck"
+                    />
+                    <label class="form-check-label" for="nodeCheck">Node JS</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Upload Image Form -->
+              <div class="mb-3 p-2">
+                <label
+                  for="uploadImage"
+                  class="form-label fw-semibold fs-5"
+                >Upload Image</label>
+                <input
+                  name="image"
+                  class="form-control"
+                  type="file"
+                  id="uploadImage"
+                  required
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card-footer">
-          <div class="d-flex justify-content-end gap-2">
-            <a href="/projects" class="btn btn-secondary">Cancel</a>
-            <button type="button" class="btn btn-primary">Create Project</button>
+          <div class="card-footer">
+            <div class="d-flex justify-content-end gap-2">
+              <a href="/projects" class="btn btn-secondary">Cancel</a>
+              <button type="submit" class="btn btn-primary">Create Project</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</form>

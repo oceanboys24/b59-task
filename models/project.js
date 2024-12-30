@@ -1,6 +1,7 @@
 'use strict';
 const {
-  Model
+  Model,
+  Sequelize
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Project extends Model {
@@ -18,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     startDate: DataTypes.DATE,
     endDate: DataTypes.DATE,
     description: DataTypes.TEXT,
-    stack: DataTypes.ARRAY,
+    stack: DataTypes.ARRAY(Sequelize.STRING),
     image: DataTypes.STRING
   }, {
     sequelize,

@@ -41,23 +41,23 @@
   <h2 class="text-center fw-bold">MY PROJECT</h2>
   <div class="row row-cols-4 justify-content-center gap-3">
     <!-- Card Project -->
+    {{#each projects}}
     <div class="card col">
       <img src="assets/img/logo.png" class="card-img-top" alt="..." />
       <div class="card-body">
-        <h5 class="card-title">Dummy App</h5>
+        <h5 class="card-title">{{name}}</h5>
         <p class="text-opacity-">Duration : 3 Months</p>
         <div class="overflow-y-auto" style="max-width: 225px; max-height: 98px">
           <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+           {{description}}
+
           </p>
         </div>
 
         <div class="d-flex mb-3 fs-2">
-          <i class="lni lni-typescript"></i>
-          <i class="lni lni-react"></i>
-          <i class="lni lni-nextjs"></i>
-          <i class="lni lni-nodejs"></i>
+          {{#each stack}}
+          <i class="{{this}}"></i>
+         {{/each}}
         </div>
         <div class="d-flex justify-content-between">
           <a
@@ -73,5 +73,6 @@
         </div>
       </div>
     </div>
+    {{/each}}
   </div>
 </div>

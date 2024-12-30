@@ -22,7 +22,7 @@ module.exports = {
         type: Sequelize.TEXT,
       },
       stack: {
-        type: Sequelize.ARRAY,
+        type: Sequelize.ARRAY(Sequelize.STRING),
       },
       image: {
         type: Sequelize.STRING,

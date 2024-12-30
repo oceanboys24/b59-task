@@ -5,6 +5,7 @@ const port = 3000;
 const path = require("path");
 const routes = require("./routes/routes");
 
+
 //Import Static File
 app.use(express.static(path.join(__dirname, "views")));
 
@@ -16,6 +17,7 @@ app.engine(
     partialsDir: path.join(__dirname, "views", "partials"),
   })
 );
+app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 
