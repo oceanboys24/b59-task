@@ -42,6 +42,22 @@ router.get("/detail-project", (req, res) => {
   });
 });
 
+//Details Project
+router.get("/project-add", (req, res) => {
+  res.render("project-add", {
+    title: "Add Project",
+    layout: "main",
+  });
+});
+
+//Details Project
+router.get("/project-edit", (req, res) => {
+  res.render("project-edit", {
+    title: "Edit Project",
+    layout: "main",
+  });
+});
+
 //Not Found Endpoint
 router.get("*", (req, res) => {
   res.render("404", {
