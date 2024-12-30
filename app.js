@@ -6,6 +6,8 @@ const path = require("path");
 const routes = require("./routes/routes");
 
 
+
+
 //Import Static File
 app.use(express.static(path.join(__dirname, "views")));
 
@@ -20,6 +22,14 @@ app.engine(
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
+
+
+hbs.registerHelper('includes', function(array, value) {
+  if (Array.isArray(array)) {
+    return array.includes(value);
+  }
+  return false;
+});
 
 //Import Endpoint
 app.use("/", routes);

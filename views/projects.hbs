@@ -21,8 +21,7 @@
           </div>
           <div class="d-flex justify-content-between">
             <a href="/project-edit/{{id}}" class="btn btn-primary">Edit</a>
-            <!-- Directly passing the ID in onclick -->
-            <button class="btn btn-danger" onclick="confirmDelete({{id}})">Delete</button>
+            <button class="btn btn-danger btn-delete" data-id="{{id}}">Delete</button>
           </div>
         </div>
       </div>
@@ -30,24 +29,4 @@
   </div>
 </div>
 
-<script>
-  function confirmDelete(projectId) {
-    if (confirm("Are you sure you want to delete this project?")) {
-      // Proceed with deletion logic
-      fetch(`/delete-project/${projectId}`, { 
-        method: 'DELETE' 
-      })
-        .then(response => response.json())  // Parse the response as JSON
-        .then(data => {
-          if (data.message === 'Project deleted successfully') {
-            // Display success message with alert
-            alert(data.message);  // Notify the user
-            location.reload();  // Reload the page after deletion
-          } else {
-            alert(data.message || 'Error deleting project.');
-          }
-        })
-        .catch(error => alert("An error occurred: " + error));
-    }
-  }
-</script>
+

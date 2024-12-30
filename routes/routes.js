@@ -5,6 +5,8 @@ const {
   ProjectCreate,
   ProjectDetail,
   ProjectDelete,
+  ProjectGetEdit,
+  ProjectEdit,
 } = require("../controllers/project_controllers");
 //Index EndPoint
 router.get("/", (req, res) => {
@@ -29,8 +31,7 @@ router.get("/projects", ProjectGetAll);
 router.post("/add-project", ProjectCreate);
 
 // Delete Project Endpoint
-router.delete("/delete-project/:id", ProjectDelete)
-
+router.delete("/delete-project/:id", ProjectDelete);
 
 //Testimonials Endpoint
 router.get("/testimonials", (req, res) => {
@@ -52,12 +53,8 @@ router.get("/project-add", (req, res) => {
 });
 
 //Edit Project
-router.get("/project-edit", (req, res) => {
-  res.render("project-edit", {
-    title: "Edit Project",
-    layout: "main",
-  });
-});
+router.get("/project-edit/:id", ProjectGetEdit);
+router.post("/project-edit/:id", ProjectEdit);
 
 //Not Found Endpoint
 router.get("*", (req, res) => {
